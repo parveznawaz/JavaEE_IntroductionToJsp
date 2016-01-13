@@ -13,8 +13,10 @@
 Welcome <%=p.getName() %>
 --%>
 
-<jsp:useBean id="person" class="com.parvez.Person" scope="request"></jsp:useBean>
-Welcome <jsp:getProperty property="name" name="person"/>
+<jsp:useBean id="person1" class="com.parvez.Person" scope="request">
+	<jsp:setProperty name="person1" property="name" value="Parvez" />
+</jsp:useBean>
+Welcome <jsp:getProperty property="name" name="person1"/>
 
 </body>
 </html>

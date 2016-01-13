@@ -40,8 +40,8 @@ public class SendName extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String name=request.getParameter("name");		
-		Person person=new Person(name);
-		
+		Person person=new Person();
+		person.setName(name);
 		request.setAttribute("person", person);
 		
 		RequestDispatcher requestDispatcher=request.getRequestDispatcher("result.jsp");
