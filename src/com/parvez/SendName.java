@@ -30,13 +30,7 @@ public class SendName extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("Running do get");
 		
-		String name=request.getParameter("name");		
-		request.setAttribute("name", name);
-		System.out.println("name is "+name);
-		RequestDispatcher requestDispatcher=request.getRequestDispatcher("result.jsp");
-		requestDispatcher.forward(request, response);
 	}
 
 	/**
@@ -44,10 +38,12 @@ public class SendName extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Running do post");
+		
 		String name=request.getParameter("name");		
-		request.setAttribute("name", name);
-		System.out.println("name is "+name);
+		Person person=new Person(name);
+		
+		request.setAttribute("person", person);
+		
 		RequestDispatcher requestDispatcher=request.getRequestDispatcher("result.jsp");
 		requestDispatcher.forward(request, response);
 

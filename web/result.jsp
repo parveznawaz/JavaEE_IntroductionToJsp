@@ -1,3 +1,4 @@
+<%@page import="com.parvez.Person"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,6 +8,13 @@
 <title>Result</title>
 </head>
 <body>
-<%=request.getAttribute("name") %>
+<%-- 
+<% Person p=(Person)request.getAttribute("person"); %>
+Welcome <%=p.getName() %>
+--%>
+
+<jsp:useBean id="person" class="com.parvez.Person" scope="request"></jsp:useBean>
+Welcome <jsp:getProperty property="name" name="person"/>
+
 </body>
 </html>
